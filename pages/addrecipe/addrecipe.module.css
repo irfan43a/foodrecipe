@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+.photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: aqua; */
+  width: 1000px;
+  height: 300px;
+}
+.ingre {
+  padding-left: 20px;
+  padding-top: 20px;
+}

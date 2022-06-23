@@ -1,0 +1,13 @@
+.inputlogin {
+  width: 426px;
+  height: 64px;
+  padding-left: 20px;
+  border: 1px solid #8692a6;
+  border-radius: 6px;
+  color: #8692a6;
+}
+.inputrecipe {
+  width: 810px;
+  height: 70px;
+  padding-left: 20px;
+}

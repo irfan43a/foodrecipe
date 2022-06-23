@@ -1,0 +1,16 @@
+.navbar {
+  display: flex;
+  width: 40%;
+  height: 60px;
+  align-items: center;
+  background-color: white;
+}
+
+.links {
+  display: flex;
+  list-style: none;
+  gap: 100px;
+  padding-top: 30px;
+  font-size: 18px;
+  color: #2e266f;
+}
