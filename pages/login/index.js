@@ -3,7 +3,9 @@ import React from "react";
 import Button from "../../components/base/button/index.js";
 import Input from "../../components/base/input/index.js";
 import styles from "./login.module.css";
+import { useRouter } from "next/router";
 const Login = () => {
+  const router = useRouter();
   return (
     <>
       <div className={styles.container}>
@@ -22,7 +24,7 @@ const Login = () => {
               <p>
                 <input type="checkbox" /> I agree to terms & conditions
               </p>
-              <Button title="Login" btn="login" color="yellow" />
+              <Button title="Login" btn="login" color="yellow" onClick={() => router.push("/")} />
             </form>
             <p>Forgot Password ?</p>
             <p>

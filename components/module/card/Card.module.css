@@ -1,0 +1,21 @@
+.card {
+  flex: 1;
+  min-width: 200px;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+}
+.card img {
+  width: 100%;
+  z-index: -1;
+}
+.card h2 {
+  margin: 0;
+  color: white;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  filter: drop-shadow(0 0 6px #000);
+}

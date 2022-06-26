@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   gap: 15px;
+  margin-bottom: 200px;
 }
 .photo {
   display: flex;

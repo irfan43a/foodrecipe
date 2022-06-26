@@ -11,6 +11,12 @@
   list-style: none;
   gap: 100px;
   padding-top: 30px;
+}
+.links a {
   font-size: 18px;
   color: #2e266f;
+}
+.links a:hover {
+  color: black;
+  font-weight: bold;
 }

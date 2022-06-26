@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "../../components/base/button";
+import Footer from "../../components/base/footer";
 import Input from "../../components/base/input";
 import MyLayout from "../../components/layout/MyLayout";
 import styles from "./detail.module.css";
@@ -32,6 +33,7 @@ const DetailRecipe = () => {
           <h3>Comment</h3>
         </div>
       </div>
+      <Footer className="footer" />
     </MyLayout>
   );
 };

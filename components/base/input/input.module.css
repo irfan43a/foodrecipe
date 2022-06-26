@@ -6,8 +6,20 @@
   border-radius: 6px;
   color: #8692a6;
 }
+.inputlogin:hover {
+  border: 1px solid #efc81a;
+}
 .inputrecipe {
   width: 810px;
   height: 70px;
   padding-left: 20px;
+}
+.landing {
+  width: 500px;
+  height: 60px;
+  border: 1px solid #efefef;
+  padding-left: 30px;
+}
+.landing:hover {
+  border: 1px solid #efc81a;
 }

@@ -4,20 +4,21 @@ import Button from "../../components/base/button";
 import MyLayout from "../../components/layout/MyLayout";
 import styles from "./addrecipe.module.css";
 import Input from "../../components/base/input";
+import Footer from "../../components/base/footer";
 
-const addRecipe = () => {
-  // const [recipe, setRecipe] = useState({
-  //   title: "",
-  //   ingre: "",
-  //   vid: "",
-  //   photo: "",
-  // });
-  // const handleChange = (e) => {
-  //   setRecipe({
-  //     ...recipe,
-  //     [e.target.name]: e.target.value,
-  //   });
-  // };
+const AddRecipe = () => {
+  const [recipe, setRecipe] = useState({
+    title: "",
+    ingre: "",
+    vid: "",
+    photo: "",
+  });
+  const handleChange = (e) => {
+    setRecipe({
+      ...recipe,
+      [e.target.name]: e.target.value,
+    });
+  };
   return (
     <MyLayout>
       <div className={styles.container}>
@@ -35,8 +36,9 @@ const addRecipe = () => {
         </div>
         <Button title="Post" color="yellow" btn="post" />
       </div>
+      <Footer className="footer" />
     </MyLayout>
   );
 };
 
-export default addRecipe;
+export default AddRecipe;

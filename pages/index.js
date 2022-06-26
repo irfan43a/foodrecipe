@@ -2,8 +2,26 @@ import MyLayout from "../components/layout/MyLayout";
 import styles from "./landing/landing.module.css";
 import Button from "../components/base/button";
 import { useRouter } from "next/router";
+import Link from "next/link";
+import Footer from "../components/base/footer";
+import Input from "../components/base/input";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import Card from "../components/module/card";
 const PageIndex = () => {
+  const [data, setData] = useState([]);
   const router = useRouter();
+  useEffect(() => {
+    axios
+      .get("http://localhost:4000/v1/recipe/")
+      .then((res) => {
+        console.log(res);
+        setData(res.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   return (
     <MyLayout>
       <div className={styles.container}>
@@ -11,10 +29,13 @@ const PageIndex = () => {
           <h1>
             Discover Recipe <br />& Delicious Food
           </h1>
+          <Input className="landing" placeholder="Seacrh Resstourant Food" />
         </div>
         <div className={styles.bg}>
           <div className={styles.mainimg}>
-            <img src="/assets/delicious.svg" alt="" />
+            <Link href="detailvideo">
+              <img src="/assets/delicious.svg" alt="" />
+            </Link>
           </div>
           <div className={styles.white}></div>
           <div className={styles.yellow}></div>
@@ -50,26 +71,12 @@ const PageIndex = () => {
       <div className={styles.container4}>
         <h1>Popular Recipe</h1>
         <div className={styles.popurecipe}>
-          <div className={styles.recipeimg}>
-            <img src="/assets/Rectangle 314.svg" alt="" />
-          </div>
-          <div className={styles.recipeimg}>
-            <img src="/assets/Rectangle 315.svg" alt="" />
-          </div>
-          <div className={styles.recipeimg}>
-            <img src="/assets/Rectangle 316.svg" alt="" />
-          </div>
-          <div className={styles.recipeimg}>
-            <img src="/assets/Rectangle 317.svg" alt="" />
-          </div>
-          <div className={styles.recipeimg}>
-            <img src="/assets/Rectangle 318.svg" alt="" />
-          </div>
-          <div className={styles.recipeimg}>
-            <img src="/assets/Rectangle 319.svg" alt="" />
-          </div>
+          {data.map((recipe) => (
+            <Card key={recipe.id} title={recipe.title} id={recipe.id} src={recipe.img} />
+          ))}
         </div>
       </div>
+      <Footer className="footer" />
     </MyLayout>
   );
 };

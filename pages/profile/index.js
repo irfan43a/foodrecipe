@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import Footer from "../../components/base/footer";
 import MyLayout from "../../components/layout/MyLayout";
 import styles from "./profile.module.css";
 
@@ -35,6 +36,7 @@ const profile = () => {
           </div>
         </div>
       </div>
+      <Footer className="footer" />
     </MyLayout>
   );
 };
