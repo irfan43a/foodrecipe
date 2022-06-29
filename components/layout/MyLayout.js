@@ -7,7 +7,7 @@ const MyLayout = ({ children, title }) => {
       <Head>
         <title>Food recipe {title || ""}</title>
       </Head>
-      <Navbar />
+      {/* <Navbar /> */}
       {children}
     </>
   );
