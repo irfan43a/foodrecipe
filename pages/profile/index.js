@@ -1,12 +1,27 @@
+import axios from "axios";
 import Link from "next/link";
-import React from "react";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 import Footer from "../../components/base/footer";
 import MyLayout from "../../components/layout/MyLayout";
+import Card from "../../components/module/cardprev";
 import styles from "./profile.module.css";
 
-const profile = () => {
+const Profile = () => {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    axios
+      .get("http://localhost:4000/v1/recipe/", { withCredentials: true })
+      .then((res) => {
+        console.log(res);
+        setData(res.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   return (
-    <MyLayout>
+    <MyLayout title="| Profile">
       <div className={styles.container}>
         <div className={styles.profile}>
           <div className={styles.profimg}>
@@ -27,12 +42,12 @@ const profile = () => {
             </Link>
           </div>
           <div className={styles.recipe}>
-            <div className={styles.recipeimg}>
+            {/* <div className={styles.recipeimg}>
               <img src="/assets/Rectangle 327.svg" alt="" />
-            </div>
-            <div className={styles.recipeimg}>
-              <img src="/assets/Rectangle 328.svg" alt="" />
-            </div>
+            </div> */}
+            {data.map((recipe) => (
+              <Card key={recipe.id} title={recipe.title} id={recipe.idrecipe} src={recipe.img} />
+            ))}
           </div>
         </div>
       </div>
@@ -41,4 +56,4 @@ const profile = () => {
   );
 };
 
-export default profile;
+export default Profile;

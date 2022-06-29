@@ -5,7 +5,7 @@ const MyLayout = ({ children, title }) => {
   return (
     <>
       <Head>
-        <title>{title || "Food recipe"}</title>
+        <title>Food recipe {title || ""}</title>
       </Head>
       <Navbar />
       {children}

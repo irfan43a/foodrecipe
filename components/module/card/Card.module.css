@@ -1,7 +1,7 @@
 .card {
   flex: 1;
   min-width: 200px;
-  height: 180px;
+  height: 200px;
   overflow: hidden;
   border-radius: 10px;
   position: relative;

@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import Button from "../../components/base/button";
 import MyLayout from "../../components/layout/MyLayout";
-import styles from "./addrecipe.module.css";
+import styles from "./editrecipe.module.css";
 import Input from "../../components/base/input";
 import Footer from "../../components/base/footer";
 
@@ -40,7 +40,7 @@ const AddRecipe = () => {
 
     axios({
       method: "POST",
-      url: "http://localhost:4000/v1/recipe/",
+      url: `http://localhost:4000/v1/recipe/${id}`,
       data: bodyFormData,
       headers: { "Content-Type": "multipart/form-data" },
     })
@@ -53,7 +53,7 @@ const AddRecipe = () => {
       });
   };
   return (
-    <MyLayout title="| add Recipe">
+    <MyLayout title="| edit Recipe">
       <div>
         <form onSubmit={handleUpload} className={styles.container}>
           <div className={styles.photo}>
@@ -70,9 +70,6 @@ const AddRecipe = () => {
             <input type="file" />
           </div>
           <Button title="Post" color="yellow" btn="post" />
-          {/* <button btn="btnlearn" title="Learn More">
-            simpan
-          </button> */}
         </form>
       </div>
       <Footer className="footer" />

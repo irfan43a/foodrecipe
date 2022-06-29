@@ -8,22 +8,23 @@ import Input from "../components/base/input";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Card from "../components/module/card";
-const PageIndex = () => {
-  const [data, setData] = useState([]);
+import Router from "next/router";
+const PageIndex = ({ data }) => {
   const router = useRouter();
-  useEffect(() => {
-    axios
-      .get("http://localhost:4000/v1/recipe/")
-      .then((res) => {
-        console.log(res);
-        setData(res.data.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+  // const [data, setData] = useState([]);
+  // useEffect(() => {
+  //   axios
+  //     .get("http://localhost:4000/v1/recipe/", { withCredentials: true })
+  //     .then((res) => {
+  //       console.log(res);
+  //       setData(res.data.data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, []);
   return (
-    <MyLayout>
+    <MyLayout title="| Home">
       <div className={styles.container}>
         <div className={styles.menu}>
           <h1>
@@ -65,20 +66,39 @@ const PageIndex = () => {
             Quick + Easy Chicken Bone Broth Ramen-
             <br /> Healthy chicken ramen in a hurry? That’s right!
           </h6>
-          <Button btn="btnlearn" title="Learn More" onClick={() => router.push("/detailrecipe")}></Button>
+          <Button btn="btnlearn" title="Learn More" onClick={() => router.push("/detailrecipe")} />
         </div>
       </div>
       <div className={styles.container4}>
         <h1>Popular Recipe</h1>
         <div className={styles.popurecipe}>
-          {data.map((recipe) => (
-            <Card key={recipe.id} title={recipe.title} id={recipe.id} src={recipe.img} />
+          {data?.map((recipe) => (
+            <Card key={recipe.id} title={recipe.title} src={recipe.img} />
           ))}
         </div>
       </div>
       <Footer className="footer" />
     </MyLayout>
   );
+};
+
+// export async function getServerSideProps(context) {
+//   const cookie = context.req.headers.cookie;
+//   if (!cookie) {
+//     context.res.writeHead(302, {
+//       Location: "http://localhost:3000/login",
+//     });
+//     return {};
+//   }
+//   const { data: RespData } = await axios.get("http://localhost:4000/v1/recipe/", { withCredentials: true, headers: { Cookie: cookie } });
+
+//   const name = "irfan";
+//   return { props: { name: name, data: RespData.data } };
+// }
+
+PageIndex.getInitialProps = async (context) => {
+  const { data: RespData } = await axios.get("http://localhost:4000/v1/recipe/");
+  return { data: RespData.data };
 };
 
 export default PageIndex;
