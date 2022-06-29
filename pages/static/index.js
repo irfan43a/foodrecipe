@@ -1,24 +1,26 @@
 import axios from "axios";
-
-const StaticPage = ({ data }) => {
+import { useRouter } from "next/router";
+const StaticPage = ({ recipe }) => {
+  const router = useRouter();
   return (
     <div>
       <h1>halaman static</h1>
       <ul>
-        {data.map((item) => {
-          <li key={item.idrecipe}>{item.title}</li>;
-        })}
+        {recipe.map((item) => (
+          <li key={item.idrecipe} onClick={() => router.push(`/static/${item.id}`)}>
+            {item.title} - id: {item.idrecipe}
+          </li>
+        ))}
       </ul>
     </div>
   );
 };
-
 export const getStaticProps = async () => {
-  const { result: RespData } = await axios.get(`http://localhost:4000/v1/recipe/`);
-  const result = RespData.result;
-  console.log(result);
+  const { data: RespData } = await axios.get(`http://localhost:4000/v1/recipe/`);
+  // const result = RespData.data;
+  // console.log(RespData.data);
   return {
-    props: { product: result },
+    props: { recipe: RespData.data },
   };
 };
 
