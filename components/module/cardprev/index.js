@@ -16,7 +16,7 @@ const Card = ({ title, src, id, alt }) => {
   return (
     <div className={styles.container}>
       <div className={styles.button}>
-        <button onClick={() => router.push("/addrecipe")}>Edit</button>
+        <button onClick={() => router.push("/editRecipe")}>Edit</button>
         <button onClick={() => deleteRecipe(id)}>X</button>
       </div>
       <div className={styles.card}>

@@ -43,16 +43,18 @@ const Login = () => {
             <p>log in into your exiting account</p>
             {/* <form onSubmit={handleLogin}> */}
             <p>E-mail</p>
-            {/* <Input type="text" name="email" className="inputlogin" placeholder="example@gmail.com" value={form.email} onChange={handleChange} /> */}
-            <input type="text" name="email" className="inputlogin" placeholder="example@gmail.com" value={form.email} onChange={handleChange} />
+            <Input type="text" name="email" className="inputlogin" placeholder="example@gmail.com" value={form.email} onChange={handleChange} />
+            {/* <input type="text" name="email" className="inputlogin" placeholder="example@gmail.com" value={form.email} onChange={handleChange} /> */}
             <p>Password</p>
-            {/* <Input type="password" name="password" className="inputlogin" placeholder="Password" value={form.password} onChange={handleChange} /> */}
-            <input type="password" name="password" className="inputlogin" placeholder="Password" value={form.password} onChange={handleChange} />
+            <Input type="password" name="password" className="inputlogin" placeholder="Password" value={form.password} onChange={handleChange} />
+            {/* <input type="password" name="password" className="inputlogin" placeholder="Password" value={form.password} onChange={handleChange} /> */}
             <p>
               <input type="checkbox" /> I agree to terms & conditions
             </p>
             {/* <Button title="Login" btn="login" color="yellow" /> */}
-            <button onClick={handleLogin}>Login</button>
+            <button onClick={handleLogin} className={styles.btn}>
+              Login
+            </button>
             {/* </form> */}
             <p>Forgot Password ?</p>
             <p>
