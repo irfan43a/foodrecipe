@@ -9,6 +9,7 @@ import Button from "../../components/base/button";
 import Footer from "../../components/base/footer";
 import Input from "../../components/base/input";
 import Card from "../../components/module/card";
+import Image from "next/image";
 const PageIndex = ({ data }) => {
   const router = useRouter();
   // const [data, setData] = useState([]);
@@ -35,7 +36,7 @@ const PageIndex = ({ data }) => {
         <div className={styles.bg}>
           <div className={styles.mainimg}>
             <Link href="detailvideo">
-              <img src="/assets/delicious.svg" alt="" />
+              <Image src="/assets/delicious.svg" alt="" layout="fill" objectFit="cover" />
             </Link>
           </div>
           <div className={styles.white}></div>
@@ -46,10 +47,10 @@ const PageIndex = ({ data }) => {
         <h1>Popular For You !</h1>
         <div className={styles.popular}>
           <div className={styles.popularimg}>
-            <img src="/assets/food2.svg" alt="" />
+            <Image src="/assets/food2.svg" alt="" width={400} height={380} />
           </div>
           <div className={styles.popularimg}>
-            <img src="/assets/food3.svg" alt="" />
+            <Image src="/assets/food3.svg" alt="" width={400} height={380} />
           </div>
         </div>
       </div>
@@ -57,7 +58,7 @@ const PageIndex = ({ data }) => {
         <div className={styles.new}>
           <h1>New Recipe</h1>
           <div className={styles.newimg}>
-            <img src="/assets/food4.svg" alt="" />
+            <Image src="/assets/food4.svg" alt="" width={450} height={450} />
           </div>
         </div>
         <div className={styles.titlenew}>
@@ -83,14 +84,17 @@ const PageIndex = ({ data }) => {
 };
 
 export async function getServerSideProps(context) {
-  const cookie = context.req.headers.cookie;
-  if (!cookie) {
-    context.res.writeHead(302, {
-      Location: "http://localhost:3000/login",
-    });
-    return {};
-  }
-  const { data: RespData } = await axios.get("http://localhost:4000/v1/recipe/", { withCredentials: true, headers: { Cookie: cookie } });
+  // const cookie = context.req.headers.cookie;
+  // if (!cookie) {
+  //   context.res.writeHead(302, {
+  //     Location: "http://localhost:3000/login",
+  //   });
+  //   return {};
+  // }
+  const { data: RespData } = await axios.get(
+    "http://localhost:4000/v1/recipe/"
+    //  { withCredentials: true, headers: { Cookie: cookie } }
+  );
 
   const name = "irfan";
   return { props: { name: name, data: RespData.data } };

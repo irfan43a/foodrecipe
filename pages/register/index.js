@@ -3,12 +3,13 @@ import Button from "../../components/base/button/index.js";
 import Input from "../../components/base/input/index.js";
 import styles from "./register.module.css";
 import Link from "next/link.js";
+import Image from "next/image";
 const Register = () => {
   return (
     <>
       <div className={styles.container}>
         <div className={styles.bg}>
-          <img src="/assets/hotpot.svg" alt="image" />
+          <Image src="/assets/hotpot.svg" alt="image" width={182} height={224} />
         </div>
         <div className={styles.form}>
           <div className={styles.register}>

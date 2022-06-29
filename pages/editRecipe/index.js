@@ -57,7 +57,7 @@ const AddRecipe = () => {
       <div>
         <form onSubmit={handleUpload} className={styles.container}>
           <div className={styles.photo}>
-            <img src={handleUploadChange.preview} width="50px" alt="" />
+            {/* <img src={handleUploadChange.preview} width="50px" alt="" /> */}
             <input type="file" value={dataRecipe.img} onChange={handleUploadChange} />
           </div>
           <div>

@@ -5,7 +5,7 @@ const home = () => {
     <>
       <MyLayout title="home">
         <h1>Page home</h1>
-        <img src="/assets/omurice.jpg" alt="image" />
+        {/* <img src="/assets/omurice.jpg" alt="image" /> */}
         <button type="button" className="btn btn-primary">
           Primary
         </button>

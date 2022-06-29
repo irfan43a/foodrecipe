@@ -8,15 +8,18 @@
   color: #2e266f;
 }
 .mainimg {
-  width: 882px;
-  height: 600px;
-  border-radius: 15px;
+  /* width: 882px;
+  height: 600px; */
+  flex: 1;
+  min-width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
 }
 .mainimg img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 30px;
 }
 .inggrediens {
   display: flex;

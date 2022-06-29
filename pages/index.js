@@ -9,6 +9,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Card from "../components/module/card";
 import Router from "next/router";
+import Image from "next/image";
 const PageIndex = ({ data }) => {
   const router = useRouter();
   // const [data, setData] = useState([]);
@@ -35,7 +36,7 @@ const PageIndex = ({ data }) => {
         <div className={styles.bg}>
           <div className={styles.mainimg}>
             <Link href="detailvideo">
-              <img src="/assets/delicious.svg" alt="" />
+              <Image src="/assets/delicious.svg" alt="" layout="fill" objectFit="cover" />
             </Link>
           </div>
           <div className={styles.white}></div>
@@ -46,10 +47,10 @@ const PageIndex = ({ data }) => {
         <h1>Popular For You !</h1>
         <div className={styles.popular}>
           <div className={styles.popularimg}>
-            <img src="/assets/food2.svg" alt="" />
+            <Image src="/assets/food2.svg" alt="" width={400} height={380} />
           </div>
           <div className={styles.popularimg}>
-            <img src="/assets/food3.svg" alt="" />
+            <Image src="/assets/food3.svg" alt="" width={400} height={380} />
           </div>
         </div>
       </div>
@@ -57,7 +58,7 @@ const PageIndex = ({ data }) => {
         <div className={styles.new}>
           <h1>New Recipe</h1>
           <div className={styles.newimg}>
-            <img src="/assets/food4.svg" alt="" />
+            <Image src="/assets/food4.svg" alt="" width={450} height={450} />
           </div>
         </div>
         <div className={styles.titlenew}>
@@ -73,7 +74,7 @@ const PageIndex = ({ data }) => {
         <h1>Popular Recipe</h1>
         <div className={styles.popurecipe}>
           {data?.map((recipe) => (
-            <Card key={recipe.id} title={recipe.title} src={recipe.img} />
+            <Card key={recipe.id} title={recipe.title} id={recipe.id} src={recipe.img} />
           ))}
         </div>
       </div>

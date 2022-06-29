@@ -4,6 +4,7 @@ import Footer from "../../components/base/footer";
 import Input from "../../components/base/input";
 import MyLayout from "../../components/layout/MyLayout";
 import styles from "./detail.module.css";
+import Image from "next/image";
 
 const DetailRecipe = () => {
   return (
@@ -11,7 +12,7 @@ const DetailRecipe = () => {
       <div className={styles.container}>
         <h1>Loream Sandwich</h1>
         <div className={styles.mainimg}>
-          <img src="/assets/Rectangle 313.svg" alt="" />
+          <Image src="/assets/Rectangle 313.svg" width={500} height={500} alt="" />
         </div>
         <div className={styles.inggrediens}>
           <h3>Ingredients</h3>

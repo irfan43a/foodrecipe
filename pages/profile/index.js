@@ -6,6 +6,7 @@ import Footer from "../../components/base/footer";
 import MyLayout from "../../components/layout/MyLayout";
 import Card from "../../components/module/cardprev";
 import styles from "./profile.module.css";
+import Image from "next/image";
 
 const Profile = () => {
   const [data, setData] = useState([]);
@@ -25,7 +26,7 @@ const Profile = () => {
       <div className={styles.container}>
         <div className={styles.profile}>
           <div className={styles.profimg}>
-            <img src="/assets/Ellipse 127.svg" alt="" />
+            <Image src="/assets/Ellipse 127.svg" alt="image" width={100} height={100} />
           </div>
           <h2>Garneta Sharina</h2>
         </div>
