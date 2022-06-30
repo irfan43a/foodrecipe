@@ -1,6 +1,5 @@
 import Link from "next/link.js";
 import React, { useState } from "react";
-import Button from "../../components/base/button/index.js";
 import Input from "../../components/base/input/index.js";
 import styles from "./login.module.css";
 import { useRouter } from "next/router";
@@ -19,15 +18,14 @@ const Login = () => {
     });
   };
   const handleLogin = () => {
-    // e.preventDefault();
     axios
-      .post("http://localhost:4000/v1/auth/login", form, { withCredentials: true })
+      .post(`${process.env.api_recipefood}auth/login`, form, { withCredentials: true })
       .then(() => {
         alert("login succcess");
         router.push("/");
       })
-      .catch(() => {
-        alert("login gagal");
+      .catch((e) => {
+        alert(e.response.data.message);
       });
   };
 
@@ -41,24 +39,19 @@ const Login = () => {
           <div className={styles.login}>
             <h4>Welcome</h4>
             <p>log in into your exiting account</p>
-            {/* <form onSubmit={handleLogin}> */}
             <p>E-mail</p>
             <Input type="text" name="email" className="inputlogin" placeholder="example@gmail.com" value={form.email} onChange={handleChange} />
-            {/* <input type="text" name="email" className="inputlogin" placeholder="example@gmail.com" value={form.email} onChange={handleChange} /> */}
             <p>Password</p>
             <Input type="password" name="password" className="inputlogin" placeholder="Password" value={form.password} onChange={handleChange} />
-            {/* <input type="password" name="password" className="inputlogin" placeholder="Password" value={form.password} onChange={handleChange} /> */}
             <p>
-              <input type="checkbox" /> I agree to terms & conditions
+              <input type="checkbox" /> I agree to terms conditions
             </p>
-            {/* <Button title="Login" btn="login" color="yellow" /> */}
             <button onClick={handleLogin} className={styles.btn}>
               Login
             </button>
-            {/* </form> */}
             <p>Forgot Password ?</p>
             <p>
-              Don’t have an account?
+              Dont have an account?
               <Link href="/register">
                 <a>Sign Up</a>
               </Link>

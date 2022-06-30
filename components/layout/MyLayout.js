@@ -1,4 +1,4 @@
-import Navbar from "../module/Navbar";
+import Navbar from "../module/navbar/index";
 import Head from "next/head";
 
 const MyLayout = ({ children, title }) => {

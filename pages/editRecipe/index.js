@@ -3,7 +3,6 @@ import axios from "axios";
 import Button from "../../components/base/button";
 import MyLayout from "../../components/layout/MyLayout";
 import styles from "./editrecipe.module.css";
-import Input from "../../components/base/input";
 import Footer from "../../components/base/footer";
 
 const AddRecipe = () => {
@@ -20,7 +19,6 @@ const AddRecipe = () => {
   const handleUploadChange = (e) => {
     console.log(e.target.files[0]);
     let upload = e.target.files[0];
-    let preview = URL.createObjectURL(e.target.files[0]);
     setFile(upload);
   };
 
@@ -57,7 +55,6 @@ const AddRecipe = () => {
       <div>
         <form onSubmit={handleUpload} className={styles.container}>
           <div className={styles.photo}>
-            {/* <img src={handleUploadChange.preview} width="50px" alt="" /> */}
             <input type="file" value={dataRecipe.img} onChange={handleUploadChange} />
           </div>
           <div>
@@ -69,7 +66,7 @@ const AddRecipe = () => {
           <div>
             <input type="file" />
           </div>
-          <Button title="Post" color="yellow" btn="post" />
+          <Button title="Edit Recipe" color="yellow" btn="post" />
         </form>
       </div>
       <Footer className="footer" />

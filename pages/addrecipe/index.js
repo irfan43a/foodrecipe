@@ -61,7 +61,6 @@ const AddRecipe = () => {
       <div>
         <form onSubmit={handleUpload} className={styles.container}>
           <div className={styles.photo}>
-            {/* <img src={handleUploadChange.preview} width="50px" alt="" /> */}
             <input type="file" value={dataRecipe.img} onChange={handleUploadChange} />
           </div>
           <div>
@@ -73,10 +72,7 @@ const AddRecipe = () => {
           <div>
             <input type="file" />
           </div>
-          <Button title="Post" color="yellow" btn="post" />
-          {/* <button btn="btnlearn" title="Learn More">
-            simpan
-          </button> */}
+          <Button title="Add Recipe" color="yellow" btn="post" />
         </form>
       </div>
       <Footer className="footer" />

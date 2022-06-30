@@ -24,7 +24,6 @@ const Product = ({ name, products, children }) => {
       <MyLayout title="product - tokoku">
         <div className={styles.container}>
           <h1>page product</h1>
-
           <div className={styles.cards}>
             {products?.map((item) => (
               <div className={styles.card} key={item.idrecipe}>

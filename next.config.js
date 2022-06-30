@@ -1,15 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
   env: {
-    RECIPE_FOOD_API_URL: "http://localhost:4000/v1/",
+    api_recipefood: "http://localhost:4000/v1/",
   },
-};
-
-module.exports = nextConfig;
-
-module.exports = {
+  reactStrictMode: true,
   images: {
     domains: ["res.cloudinary.com"],
   },
 };
+
+module.exports = nextConfig;
