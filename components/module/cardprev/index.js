@@ -5,13 +5,19 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import Router from "next/router";
 
-const Card = ({ title, src, id, alt }) => {
+const Card = ({ title, src, id, alt, onClick }) => {
   const router = useRouter();
   const deleteRecipe = (id) => {
-    axios.delete(`http://localhost:4000/v1/recipe/${id}`, { withCredentials: true }).then(() => {
-      alert("data berhasil di hapus");
-      Router.replace("/profile");
-    });
+    axios
+      .delete(`http://localhost:4000/v1/recipe/${id}`, { withCredentials: true })
+      .then(() => {
+        alert("data berhasil di hapus");
+        Router.replace("/");
+      })
+      .catch((e) => {
+        alert(e.response.data.message);
+        router.push("/login");
+      });
   };
   return (
     <div className={styles.container}>
@@ -21,7 +27,7 @@ const Card = ({ title, src, id, alt }) => {
       </div>
       <div className={styles.card}>
         <Image src={src} layout="fill" objectFit="cover" alt={alt} />
-        <h2>{title}</h2>
+        <h2 onClick={onClick}>{title}</h2>
       </div>
     </div>
   );

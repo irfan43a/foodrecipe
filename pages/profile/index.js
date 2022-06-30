@@ -9,6 +9,7 @@ import styles from "./profile.module.css";
 import Image from "next/image";
 
 const Profile = () => {
+  const router = useRouter();
   const [data, setData] = useState([]);
   useEffect(() => {
     axios
@@ -47,7 +48,7 @@ const Profile = () => {
               <img src="/assets/Rectangle 327.svg" alt="" />
             </div> */}
             {data.map((recipe) => (
-              <Card key={recipe.id} title={recipe.title} id={recipe.idrecipe} src={recipe.img} />
+              <Card key={recipe.id} title={recipe.title} id={recipe.idrecipe} src={recipe.img} onClick={() => router.push(`/landing/${recipe.idrecipe}`)} />
             ))}
           </div>
         </div>

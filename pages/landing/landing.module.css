@@ -38,6 +38,7 @@
   height: 100vh;
   margin-top: -60px;
   position: relative;
+  z-index: -1000;
 }
 .white {
   background-color: transparent;

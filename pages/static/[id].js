@@ -1,25 +1,24 @@
 import axios from "axios";
 import { useRouter } from "next/router";
-import Button from "../../components/base/button/index.js";
-import Footer from "../../components/base/footer/index.js";
-import MyLayout from "../../components/layout/MyLayout.js";
-import Landing from "./index.js";
+import Button from "../../components/base/button";
+import Footer from "../../components/base/footer";
+import MyLayout from "../../components/layout/MyLayout";
 import Image from "next/image";
 import styles from "./detail.module.css";
-const ProductDetail = ({ product }) => {
+
+const DetailStatic = ({ product }) => {
   const router = useRouter();
+  if (router.isFallback) {
+    return <h3>loading......</h3>;
+  }
   return (
-    // <Landing>
-    //   <h1>product detail</h1>
+    // <div>
+    //   <h1>page detail static</h1>
     //   <ul>
-    //     <li>name: {product.name}</li>
-    //     <li>description: {product.description}</li>
-    //     <li>price: {product.price}</li>
+    //     <li>nama product: {product.title} </li>
+    //     <li>description product: {product.ingre}</li>
     //   </ul>
-    //   <p>dengan id : {router.query.id} </p>
-    //   <p>filter : {router.query.filter}</p>
-    //   <p>{JSON.stringify(router.query)}</p>
-    // </Landing>
+    // </div>
     <MyLayout>
       <div className={styles.container}>
         <h1>{product.title}</h1>
@@ -49,16 +48,32 @@ const ProductDetail = ({ product }) => {
   );
 };
 
-export const getServerSideProps = async (context) => {
-  try {
-    const { id } = context.params;
-    const { data: RespData } = await axios.get(`http://localhost:4000/v1/recipe/${id}`);
-    const result = RespData.result;
-    console.log(result);
+export async function getStaticPaths(context) {
+  const { data: RespData } = await axios.get(`http://localhost:4000/v1/recipe/`);
+  //   console.log(data.RespData);
+  const paths = RespData.data.map((item) => {
     return {
-      props: { product: RespData.result },
+      params: {
+        id: item.idrecipe + "",
+      },
     };
-  } catch (error) {}
-};
+  });
+  console.log(paths);
+  return {
+    paths: paths,
+    fallback: true, // false or 'blocking'
+  };
+}
 
-export default ProductDetail;
+export async function getStaticProps(context) {
+  const id = context.params.id;
+  console.log(id);
+  const { data: RespData } = await axios.get(`http://localhost:4000/v1/recipe/${id}`);
+
+  return {
+    props: {
+      product: RespData.result,
+    },
+  };
+}
+export default DetailStatic;

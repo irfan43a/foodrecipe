@@ -1,9 +1,11 @@
 .navbar {
   display: flex;
-  width: 40%;
+  width: 100%;
   height: 60px;
+  background-color: transparent;
+  z-index: 1000px;
   align-items: center;
-  background-color: white;
+  justify-content: space-around;
 }
 
 .links {
@@ -19,4 +21,17 @@
 .links a:hover {
   color: black;
   font-weight: bold;
+}
+.login {
+  background-color: white;
+  border-radius: 50%;
+  width: 50px;
+  position: relative;
+  padding-left: 10px;
+}
+.link {
+  display: flex;
+  color: white;
+  gap: 10px;
+  align-items: center;
 }

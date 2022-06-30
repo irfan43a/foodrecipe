@@ -74,7 +74,7 @@ const PageIndex = ({ data }) => {
         <h1>Popular Recipe</h1>
         <div className={styles.popurecipe}>
           {data?.map((recipe) => (
-            <Card key={recipe.id} title={recipe.title} id={recipe.id} src={recipe.img} />
+            <Card key={recipe.id} title={recipe.title} id={recipe.id} src={recipe.img} onClick={() => router.push(`/landing/${recipe.idrecipe}`)} />
           ))}
         </div>
       </div>
@@ -83,23 +83,23 @@ const PageIndex = ({ data }) => {
   );
 };
 
-// export async function getServerSideProps(context) {
-//   const cookie = context.req.headers.cookie;
-//   if (!cookie) {
-//     context.res.writeHead(302, {
-//       Location: "http://localhost:3000/login",
-//     });
-//     return {};
-//   }
-//   const { data: RespData } = await axios.get("http://localhost:4000/v1/recipe/", { withCredentials: true, headers: { Cookie: cookie } });
+export async function getServerSideProps(context) {
+  const cookie = context.req.headers.cookie;
+  if (!cookie) {
+    context.res.writeHead(302, {
+      Location: "http://localhost:3000/login",
+    });
+    return {};
+  }
+  const { data: RespData } = await axios.get("http://localhost:4000/v1/recipe/", { withCredentials: true, headers: { Cookie: cookie } });
 
-//   const name = "irfan";
-//   return { props: { name: name, data: RespData.data } };
-// }
+  const name = "irfan";
+  return { props: { name: name, data: RespData.data } };
+}
 
-PageIndex.getInitialProps = async (context) => {
-  const { data: RespData } = await axios.get("http://localhost:4000/v1/recipe/");
-  return { data: RespData.data };
-};
+// PageIndex.getInitialProps = async (context) => {
+//   const { data: RespData } = await axios.get("http://localhost:4000/v1/recipe/");
+//   return { data: RespData.data };
+// };
 
 export default PageIndex;

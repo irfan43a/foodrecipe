@@ -5,8 +5,9 @@ import MyLayout from "../../components/layout/MyLayout";
 import styles from "./addrecipe.module.css";
 import Input from "../../components/base/input";
 import Footer from "../../components/base/footer";
-
+import { useRouter } from "next/router";
 const AddRecipe = () => {
+  const router = useRouter();
   const [dataRecipe, setDataRecipe] = useState({
     title: "",
     ingre: "",
@@ -40,16 +41,19 @@ const AddRecipe = () => {
 
     axios({
       method: "POST",
-      url: "http://localhost:4000/v1/recipe/",
+      url: `http://localhost:4000/v1/recipe/`,
+      withCredentials: true,
       data: bodyFormData,
       headers: { "Content-Type": "multipart/form-data" },
     })
       .then((res) => {
         alert("produk berhasil di tambah");
+        router.push("/");
         console.log(res);
       })
       .catch((e) => {
         alert(e.response.data.message);
+        router.push("/login");
       });
   };
   return (

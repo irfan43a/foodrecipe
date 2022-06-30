@@ -74,7 +74,7 @@ const PageIndex = ({ data }) => {
         <h1>Popular Recipe</h1>
         <div className={styles.popurecipe}>
           {data?.map((recipe) => (
-            <Card key={recipe.id} title={recipe.title} id={recipe.id} src={recipe.img} />
+            <Card key={recipe.id} title={recipe.title} id={recipe.id} src={recipe.img} onClick={() => router.push(`/landing/${recipe.idrecipe}`)} />
           ))}
         </div>
       </div>
