@@ -84,16 +84,10 @@ const PageIndex = ({ data }) => {
 };
 
 export async function getServerSideProps(context) {
-  // const cookie = context.req.headers.cookie;
-  // if (!cookie) {
-  //   context.res.writeHead(302, {
-  //     Location: "http://localhost:3000/login",
-  //   });
-  //   return {};
-  // }
+  
   const { data: RespData } = await axios.get(
     "http://localhost:4000/v1/recipe/"
-    //  { withCredentials: true, headers: { Cookie: cookie } }
+    
   );
 
   const name = "irfan";
