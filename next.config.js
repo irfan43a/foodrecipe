@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   env: {
-    api_recipefood: "http://localhost:4000/v1/",
+    api_recipefood: "http://localhost:4000",
   },
   reactStrictMode: true,
   images: {

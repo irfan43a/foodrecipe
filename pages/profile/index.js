@@ -7,13 +7,25 @@ import MyLayout from "../../components/layout/MyLayout";
 import Card from "../../components/module/cardprev";
 import styles from "./profile.module.css";
 import Image from "next/image";
+import Button from "../../components/base/button";
 
 const Profile = () => {
   const router = useRouter();
   const [data, setData] = useState([]);
+  const [page, setPage] = useState({
+    currentPage: 1,
+    limit: 5,
+    sortBy: "",
+    sort: "asc",
+  });
+
   useEffect(() => {
     axios
-      .get("http://localhost:4000/v1/recipe/", { withCredentials: true })
+      .get(
+        `${process.env.api_recipefood}/v1/recipe/?page=${page.currentPage}&limit=${page.limit}
+      ${page.sortBy ? "&sortBy=" + page.sortBy : ""}${page.sort ? "&sort=" + page.sort : ""}`,
+        { withCredentials: true }
+      )
       .then((res) => {
         console.log(res);
         setData(res.data.data);
@@ -21,7 +33,7 @@ const Profile = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [page]);
   return (
     <MyLayout title="| Profile">
       <div className={styles.container}>
@@ -42,6 +54,25 @@ const Profile = () => {
             <Link href="">
               <a>Liked Recipe</a>
             </Link>
+          </div>
+          <div>
+            <select
+              name="sortBy"
+              id="sortBy"
+              value={page.sortBy}
+              onChange={(e) => {
+                setPage({ ...page, sortBy: e.target.value });
+              }}
+            >
+              <option value="">Sort Berdasarkan</option>
+              <option value="title">Nama</option>
+              <option value="idrecipe">ID</option>
+            </select>
+            <Button title="1" className="pagination" onClick={() => setPage({ ...page, currentPage: 1 })} />
+            <Button title="2" className="pagination" onClick={() => setPage({ ...page, currentPage: 2 })} />
+            <Button title="3" className="pagination" onClick={() => setPage({ ...page, currentPage: 3 })} />
+            <Button title="4" className="pagination" onClick={() => setPage({ ...page, currentPage: 4 })} />
+            <Button title="5" className="pagination" onClick={() => setPage({ ...page, currentPage: 5 })} />
           </div>
           <div className={styles.recipe}>
             {/* <div className={styles.recipeimg}>

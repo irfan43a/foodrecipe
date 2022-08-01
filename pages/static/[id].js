@@ -49,7 +49,7 @@ const DetailStatic = ({ product }) => {
 };
 
 export async function getStaticPaths(context) {
-  const { data: RespData } = await axios.get(`http://localhost:4000/v1/recipe/`);
+  const { data: RespData } = await axios.get(`${process.env.api_recipefood}/v1/recipe/`);
   //   console.log(data.RespData);
   const paths = RespData.data.map((item) => {
     return {
@@ -68,7 +68,7 @@ export async function getStaticPaths(context) {
 export async function getStaticProps(context) {
   const id = context.params.id;
   console.log(id);
-  const { data: RespData } = await axios.get(`http://localhost:4000/v1/recipe/${id}`);
+  const { data: RespData } = await axios.get(`${process.env.api_recipefood}/v1/recipe/${id}`);
 
   return {
     props: {

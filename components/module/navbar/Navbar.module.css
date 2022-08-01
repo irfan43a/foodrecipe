@@ -31,7 +31,7 @@
 }
 .link {
   display: flex;
-  color: white;
+  color: rgb(15, 0, 0);
   gap: 10px;
   align-items: center;
 }

@@ -79,7 +79,7 @@ const StaticPage = ({ recipe }) => {
   );
 };
 export const getStaticProps = async () => {
-  const { data: RespData } = await axios.get(`http://localhost:4000/v1/recipe/`);
+  const { data: RespData } = await axios.get(`${process.env.api_recipefood}/v1/recipe/`);
   // const result = RespData.data;
   // console.log(RespData.data);
   return {

@@ -21,7 +21,7 @@ export const getServerSideProps = async (context) => {
   try {
     const { id } = context.params;
     console.log(id);
-    const { data: RespData } = await axios.get(`http://localhost:4000/v1/recipe/${id}`);
+    const { data: RespData } = await axios.get(`${process.env.api_recipefood}/v1/recipe/${id}`);
     const result = RespData.result;
     console.log(result);
     return {

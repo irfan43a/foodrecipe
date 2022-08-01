@@ -11,7 +11,7 @@ const Product = ({ name, products, children }) => {
   const router = useRouter();
   // const handleDelete = (id) => {
   //   axios
-  //     .delete(`http://localhost:4000/v1/recipe/${id}`, { withCredentials: true })
+  //     .delete(`${process.env.api_recipefood}/v1/recipe/${id}`, { withCredentials: true })
   //     .then((res) => {
   //       alert("success");
   //     })
@@ -51,7 +51,7 @@ export async function getServerSideProps(context) {
   //   });
   //   return {};
   // }
-  const { data: RespData } = await axios.get("http://localhost:4000/v1/recipe", {
+  const { data: RespData } = await axios.get(`${process.env.api_recipefood}/v1/recipe`, {
     withCredentials: true,
     // headers: {
     //   Cookie: cookie,
@@ -67,7 +67,7 @@ export async function getServerSideProps(context) {
 }
 
 // Product.getInitialProps = async (ctx) => {
-//   const { data: RespData } = await axios.get("http://localhost:4000/v1/products", {withCredentials: true});
+//   const { data: RespData } = await axios.get(`${process.env.api_recipefood}/v1/products`, {withCredentials: true});
 //   return { products: RespData.data }
 // }
 

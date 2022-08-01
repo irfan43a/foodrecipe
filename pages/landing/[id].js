@@ -24,7 +24,7 @@ const ProductDetail = ({ product }) => {
       <div className={styles.container}>
         <h1>{product.title}</h1>
         <div className={styles.mainimg}>
-          <Image src={product.img} width={600} height={500} alt="" />
+          <Image src={product.img} width={400} height={300} alt="" />
         </div>
         <div className={styles.inggrediens}>
           <h3>Ingredients</h3>
@@ -32,7 +32,7 @@ const ProductDetail = ({ product }) => {
         </div>
         <div className={styles.vid}>
           <h3>Video Step</h3>
-          <Button btn="btnVid" color="yellow" title="D" />
+          <Button btn="btnVid" color="yellow" title="D" onClick={() => router.push(`/detailvideo/${product.idrecipe}`)} />
           <Button btn="btnVid" color="yellow" title="D" />
           <Button btn="btnVid" color="yellow" title="D" />
         </div>
@@ -52,7 +52,7 @@ const ProductDetail = ({ product }) => {
 export const getServerSideProps = async (context) => {
   try {
     const { id } = context.params;
-    const { data: RespData } = await axios.get(`http://localhost:4000/v1/recipe/${id}`);
+    const { data: RespData } = await axios.get(`${process.env.api_recipefood}/v1/recipe/${id}`);
     const result = RespData.result;
     console.log(result);
     return {

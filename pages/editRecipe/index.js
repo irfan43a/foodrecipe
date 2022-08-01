@@ -38,7 +38,7 @@ const AddRecipe = () => {
 
     axios({
       method: "POST",
-      url: `http://localhost:4000/v1/recipe/${id}`,
+      url: `${process.env.api_recipefood}/v1/recipe/${id}`,
       data: bodyFormData,
       headers: { "Content-Type": "multipart/form-data" },
     })

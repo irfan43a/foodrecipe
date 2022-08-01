@@ -24,7 +24,7 @@ const Register = () => {
   const handleRegister = (e) => {
     e.preventDefault();
     axios
-      .post(`${process.env.api_recipefood}auth/register`, formRegister)
+      .post(`${process.env.api_recipefood}/v1/auth/register`, formRegister)
       .then(() => {
         alert("register succcess");
         router.push("/login");

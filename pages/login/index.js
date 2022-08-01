@@ -5,6 +5,7 @@ import styles from "./login.module.css";
 import { useRouter } from "next/router";
 import axios from "axios";
 import Image from "next/image";
+import swal from "sweetalert";
 const Login = () => {
   const router = useRouter();
   const [form, setform] = useState({
@@ -19,13 +20,22 @@ const Login = () => {
   };
   const handleLogin = () => {
     axios
-      .post(`${process.env.api_recipefood}auth/login`, form, { withCredentials: true })
-      .then(() => {
-        alert("login succcess");
+      .post(`${process.env.api_recipefood}/v1/auth/login`, form, { withCredentials: true })
+      .then((result) => {
+        swal({
+          title: "Good job!",
+          text: `${result.data.message}`,
+          icon: "success",
+        });
+        // localStorage.setItem("Token", user.Token);
         router.push("/");
       })
       .catch((e) => {
-        alert(e.response.data.message);
+        swal({
+          title: "Oops!",
+          text: `${e.response.data.message}`,
+          icon: "error",
+        });
       });
   };
 

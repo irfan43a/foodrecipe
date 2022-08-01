@@ -15,7 +15,7 @@ const PageIndex = ({ data }) => {
   // const [data, setData] = useState([]);
   // useEffect(() => {
   //   axios
-  //     .get("http://localhost:4000/v1/recipe/", { withCredentials: true })
+  //     .get(`process.env.api_recipefood/v1/recipe/`, { withCredentials: true })
   //     .then((res) => {
   //       console.log(res);
   //       setData(res.data.data);
@@ -74,7 +74,7 @@ const PageIndex = ({ data }) => {
         <h1>Popular Recipe</h1>
         <div className={styles.popurecipe}>
           {data?.map((recipe) => (
-            <Card key={recipe.id} title={recipe.title} id={recipe.id} src={recipe.img} onClick={() => router.push(`/landing/${recipe.idrecipe}`)} />
+            <Card key={recipe.id} title={recipe.title} id={recipe.id} src={recipe.img ? recipe.img : "/assets/food2.svg"} onClick={() => router.push(`/landing/${recipe.idrecipe}`)} />
           ))}
         </div>
       </div>
@@ -91,7 +91,7 @@ export async function getServerSideProps(context) {
     });
     return {};
   }
-  const { data: RespData } = await axios.get("http://localhost:4000/v1/recipe/", { withCredentials: true, headers: { Cookie: cookie } });
+  const { data: RespData } = await axios.get(`${process.env.api_recipefood}/v1/recipe/`, { withCredentials: true, headers: { Cookie: cookie } });
 
   const name = "irfan";
   return { props: { name: name, data: RespData.data } };

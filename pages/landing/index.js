@@ -15,7 +15,7 @@ const PageIndex = ({ data }) => {
   // const [data, setData] = useState([]);
   // useEffect(() => {
   //   axios
-  //     .get("http://localhost:4000/v1/recipe/", { withCredentials: true })
+  //     .get(`${process.env.api_recipefood}/v1/recipe/`, { withCredentials: true })
   //     .then((res) => {
   //       console.log(res);
   //       setData(res.data.data);
@@ -84,18 +84,14 @@ const PageIndex = ({ data }) => {
 };
 
 export async function getServerSideProps(context) {
-  
-  const { data: RespData } = await axios.get(
-    "http://localhost:4000/v1/recipe/"
-    
-  );
+  const { data: RespData } = await axios.get(`${process.env.api_recipefood}/v1/recipe/`);
 
   const name = "irfan";
   return { props: { name: name, data: RespData.data } };
 }
 
 // PageIndex.getInitialProps = async (context) => {
-//   const { data: RespData } = await axios.get("http://localhost:4000/v1/recipe/");
+//   const { data: RespData } = await axios.get(`${process.env.api_recipefood}/v1/recipe/`);
 //   return { data: RespData.data };
 // };
 
