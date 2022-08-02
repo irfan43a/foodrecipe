@@ -43,28 +43,28 @@ const Product = ({ name, products, children }) => {
     </>
   );
 };
-export async function getServerSideProps(context) {
-  const cookie = context.req.headers.cookie;
-  // if (!cookie) {
-  //   context.res.writeHead(302, {
-  //     Location: `http://localhost:3000/login`,
-  //   });
-  //   return {};
-  // }
-  const { data: RespData } = await axios.get(`${process.env.api_recipefood}/v1/recipe`, {
-    withCredentials: true,
-    // headers: {
-    //   Cookie: cookie,
-    // },
-  });
-  // console.log(data);
-  // const name = "irfan";
-  return {
-    props: {
-      products: RespData.data,
-    },
-  };
-}
+// export async function getServerSideProps(context) {
+//   const cookie = context.req.headers.cookie;
+// if (!cookie) {
+//   context.res.writeHead(302, {
+//     Location: `http://localhost:3000/login`,
+//   });
+//   return {};
+// }
+// const { data: RespData } = await axios.get(`${process.env.api_recipefood}/v1/recipe`, {
+//   withCredentials: true,
+// headers: {
+//   Cookie: cookie,
+// },
+// });
+// console.log(data);
+// const name = "irfan";
+//   return {
+//     props: {
+//       products: RespData.data,
+//     },
+//   };
+// }
 
 // Product.getInitialProps = async (ctx) => {
 //   const { data: RespData } = await axios.get(`${process.env.api_recipefood}/v1/products`, {withCredentials: true});

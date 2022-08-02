@@ -4,41 +4,66 @@ import Footer from "../../components/base/footer/index.js";
 import MyLayout from "../../components/layout/MyLayout.js";
 import Image from "next/image";
 import styles from "./detail.module.css";
-const ProductDetail = ({ product }) => {
+import { useState, useEffect } from "react";
+const ProductDetail = () => {
   const router = useRouter();
+  const id = router.query.id;
+  const [data, setData] = useState();
+  async function fetchData(id) {
+    try {
+      const result = await axios({
+        method: "GET",
+        baseURL: `${process.env.api_recipefood}`,
+        url: `/v1/recipe/${id}`,
+      });
+      const recipes = result.data.result;
+      setData(recipes);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    fetchData(id);
+    // axios
+    //   .get(`${process.env.api_recipefood}/v1/recipe/${id}`)
+    //   .then((res) => {
+    //     setData(res.data.result);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+  }, [id]);
+  console.log("data food", data);
   return (
     <MyLayout>
       <div className={styles.container}>
         <div className={styles.main}>
           <div className={styles.mainvid}>
             <video width={810} controls>
-              <source src={product.vid} type="video/mp4"></source>
+              {/* <source src={data.vid ? data.vid : "/assets/food2.svg"} type="video/mp4"></source> */}
             </video>
           </div>
-          <h2>{product.title}</h2>
-          <h2>{product.ingre}</h2>
+          {/* <h2>{data.title ? data.title : "data"}</h2> */}
+          {/* <h2>{data.ingre}</h2> */}
         </div>
         <div className={styles.sub}>
           <h6>Next</h6>
           <div className={styles.nextvid}>
             <div className={styles.vid}>
               <video width={319} height={160} controls>
-                <source src={product.vid} type="video/mp4"></source>
+                {/* <source src={data.vid ? data.vid : "/assets/food2.svg"} type="video/mp4"></source> */}
               </video>
             </div>
-            <p>
-              {product.title} - {product.ingre}
-            </p>
+            <p>{/* {data.title} - {data.ingre} */}</p>
           </div>
           <div className={styles.nextvid}>
             <div className={styles.vid}>
               <video width={319} height={160} controls>
-                <source src={product.vid} type="video/mp4"></source>
+                {/* <source src={data.vid ? data.vid : "/assets/food2.svg"} type="video/mp4"></source> */}
               </video>
             </div>
-            <p>
-              {product.title} - {product.ingre}
-            </p>
+            <p>{/* {data.title} - {data.ingre} */}</p>
           </div>
         </div>
       </div>
@@ -47,16 +72,16 @@ const ProductDetail = ({ product }) => {
   );
 };
 
-export const getServerSideProps = async (context) => {
-  try {
-    const { id } = context.params;
-    const { data: RespData } = await axios.get(`${process.env.api_recipefood}/v1/recipe/${id}`);
-    const result = RespData.result;
-    console.log(result);
-    return {
-      props: { product: RespData.result },
-    };
-  } catch (error) {}
-};
+// export const getServerSideProps = async (context) => {
+//   try {
+//     const { id } = context.params;
+//     const { data: RespData } = await axios.get(`${process.env.api_recipefood}/v1/recipe/${id}`);
+//     const result = RespData.result;
+//     console.log(result);
+//     return {
+//       props: { product: RespData.result },
+//     };
+//   } catch (error) {}
+// };
 
 export default ProductDetail;

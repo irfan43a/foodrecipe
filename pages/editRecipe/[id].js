@@ -5,7 +5,7 @@ import MyLayout from "../../components/layout/MyLayout";
 import styles from "./editrecipe.module.css";
 import Footer from "../../components/base/footer";
 import { useRouter } from "next/router";
-
+import swal from "sweetalert";
 const AddRecipe = () => {
   const router = useRouter();
 
@@ -58,11 +58,23 @@ const AddRecipe = () => {
       headers: { "Content-Type": "multipart/form-data" },
     })
       .then((res) => {
-        alert("produk berhasil di tambah");
+        // alert("produk berhasil di tambah");
+        swal({
+          title: "Good job!",
+          text: `${res.data.message}`,
+          icon: "success",
+        });
+        router.push("/profile");
+        console.log(res);
         console.log(res);
       })
       .catch((e) => {
-        alert(e.response.data.message);
+        // alert(e.response.data.message);
+        swal({
+          title: "Oops!",
+          text: `${e.response.data.message}`,
+          icon: "error",
+        });
       });
   };
   return (

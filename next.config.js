@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   env: {
-    api_recipefood: "http://localhost:4000",
+    api_recipefood: "https://recipefood-app.herokuapp.com",
   },
   reactStrictMode: true,
   images: {

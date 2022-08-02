@@ -10,20 +10,20 @@ import axios from "axios";
 import Card from "../components/module/card";
 import Router from "next/router";
 import Image from "next/image";
-const PageIndex = ({ data }) => {
+const PageIndex = () => {
   const router = useRouter();
-  // const [data, setData] = useState([]);
-  // useEffect(() => {
-  //   axios
-  //     .get(`process.env.api_recipefood/v1/recipe/`, { withCredentials: true })
-  //     .then((res) => {
-  //       console.log(res);
-  //       setData(res.data.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, []);
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    axios
+      .get(`${process.env.api_recipefood}/v1/recipe/`)
+      .then((res) => {
+        console.log(res);
+        setData(res.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   return (
     <MyLayout title="| Home">
       <div className={styles.container}>
@@ -83,19 +83,19 @@ const PageIndex = ({ data }) => {
   );
 };
 
-export async function getServerSideProps(context) {
-  const cookie = context.req.headers.cookie;
-  if (!cookie) {
-    context.res.writeHead(302, {
-      Location: "http://localhost:3000/login",
-    });
-    return {};
-  }
-  const { data: RespData } = await axios.get(`${process.env.api_recipefood}/v1/recipe/`, { withCredentials: true, headers: { Cookie: cookie } });
+// export async function getServerSideProps(context) {
+//   const cookie = context.req.headers.cookie;
+//   if (!cookie) {
+//     context.res.writeHead(302, {
+//       Location: "http://localhost:3000/login",
+//     });
+//     return {};
+//   }
+//   const { data: RespData } = await axios.get(`${process.env.api_recipefood}/v1/recipe/`, { withCredentials: true, headers: { Cookie: cookie } });
 
-  const name = "irfan";
-  return { props: { name: name, data: RespData.data } };
-}
+//   const name = "irfan";
+//   return { props: { name: name, data: RespData.data } };
+// }
 
 // PageIndex.getInitialProps = async (context) => {
 //   const { data: RespData } = await axios.get("http://localhost:4000/v1/recipe/");

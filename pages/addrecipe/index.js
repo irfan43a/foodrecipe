@@ -66,7 +66,7 @@ const AddRecipe = () => {
           text: `${res.data.message}`,
           icon: "success",
         });
-        router.push("/");
+        router.push("/profile");
         console.log(res);
       })
       .catch((e) => {
