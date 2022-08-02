@@ -25,14 +25,6 @@ const ProductDetail = () => {
 
   useEffect(() => {
     fetchData(id);
-    // axios
-    //   .get(`${process.env.api_recipefood}/v1/recipe/${id}`)
-    //   .then((res) => {
-    //     setData(res.data.result);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
   }, [id]);
   console.log("data food", data);
   return (
@@ -45,7 +37,7 @@ const ProductDetail = () => {
             </video>
           </div>
           {/* <h2>{data.title ? data.title : "data"}</h2> */}
-          {/* <h2>{data.ingre}</h2> */}
+          {/* <h2>{data.ingre ? data.ingre : <div>Loading..</div>}</h2> */}
         </div>
         <div className={styles.sub}>
           <h6>Next</h6>

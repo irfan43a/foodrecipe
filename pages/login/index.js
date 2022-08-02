@@ -20,14 +20,18 @@ const Login = () => {
   };
   const handleLogin = () => {
     axios
-      .post(`${process.env.api_recipefood}/v1/auth/login`, form, { withCredentials: true })
+      .post(`${process.env.api_recipefood}/v1/auth/login`, form)
       .then((result) => {
+        const token = result.data.data.token;
+        const refreshToken = result.data.data.refreshToken;
+        localStorage.setItem("token", token);
+        localStorage.setItem("refreshToken", refreshToken);
         swal({
           title: "Good job!",
           text: `${result.data.message}`,
           icon: "success",
         });
-        // localStorage.setItem("Token", user.Token);
+
         router.push("/");
       })
       .catch((e) => {
