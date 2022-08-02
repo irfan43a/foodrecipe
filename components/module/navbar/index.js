@@ -47,12 +47,21 @@ const Navbar = () => {
           </div>
         </>
       ) : (
-        <div className={styles.linklogin}>
-          <div className={styles.logout}>
-            <Image src="/assets/UserPanel.svg" alt="" width={100} height={100} />
+        <>
+          <ul className={styles.links}>
+            <li>
+              <Link href="/">
+                <a>Home</a>
+              </Link>
+            </li>
+          </ul>
+          <div className={styles.linklogin}>
+            <div className={styles.logout}>
+              <Image src="/assets/UserPanel.svg" alt="" width={100} height={100} />
+            </div>
+            <Link href={"/login"}>Login</Link>
           </div>
-          <Link href={"/login"}>Login</Link>
-        </div>
+        </>
       )}
     </nav>
   );

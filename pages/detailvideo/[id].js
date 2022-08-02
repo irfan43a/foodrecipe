@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 const ProductDetail = () => {
   const router = useRouter();
   const id = router.query.id;
-  const [data, setData] = useState();
+  const [data, setData] = useState({});
   async function fetchData(id) {
     try {
       const result = await axios({
@@ -32,29 +32,27 @@ const ProductDetail = () => {
       <div className={styles.container}>
         <div className={styles.main}>
           <div className={styles.mainvid}>
-            <video width={810} controls>
-              {/* <source src={data.vid ? data.vid : "/assets/food2.svg"} type="video/mp4"></source> */}
-            </video>
+            {data.vid && (
+              <video width="810" className={`${styles.videos} mt-2`} controls>
+                <source src={data.vid} />
+              </video>
+            )}
           </div>
-          {/* <h2>{data.title ? data.title : "data"}</h2> */}
-          {/* <h2>{data.ingre ? data.ingre : <div>Loading..</div>}</h2> */}
+          <h2>{data?.title}</h2>
+          <h2>{data?.ingre}</h2>
         </div>
         <div className={styles.sub}>
           <h6>Next</h6>
           <div className={styles.nextvid}>
-            <div className={styles.vid}>
-              <video width={319} height={160} controls>
-                {/* <source src={data.vid ? data.vid : "/assets/food2.svg"} type="video/mp4"></source> */}
+            {/* <div className={styles.vid}>
+              <video width={320} height={240} controls>
+                <source src={data.vid} type="video/mp4" />
               </video>
-            </div>
+            </div> */}
             <p>{/* {data.title} - {data.ingre} */}</p>
           </div>
           <div className={styles.nextvid}>
-            <div className={styles.vid}>
-              <video width={319} height={160} controls>
-                {/* <source src={data.vid ? data.vid : "/assets/food2.svg"} type="video/mp4"></source> */}
-              </video>
-            </div>
+            <div className={styles.vid}></div>
             <p>{/* {data.title} - {data.ingre} */}</p>
           </div>
         </div>

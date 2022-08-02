@@ -13,9 +13,10 @@
   list-style: none;
   gap: 100px;
   padding-top: 30px;
+  font-size: 18px;
+  font-weight: bold;
 }
 .links a {
-  font-size: 18px;
   color: #2e266f;
 }
 .links a:hover {
@@ -57,12 +58,16 @@
   gap: 20px;
   display: flex;
   align-items: center;
-  margin-left: 900px;
+  margin-left: 400px;
+  margin-top: 20px;
   font-size: 28px;
   color: white;
+  text-shadow: -1px -1px 0 #efc81a, 1px -1px 0 #efc81a, -1px 1px 0 #efc81a, 1px 1px 0 #efc81a;
+  /* background-color: #efc81a; */
 }
 .btnlogout {
   background-color: transparent;
   border: 0;
-  font-size: 28px;
+  font-size: 16px;
+  font-weight: bold;
 }
