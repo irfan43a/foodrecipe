@@ -8,7 +8,6 @@ import { useRouter } from "next/router";
 import swal from "sweetalert";
 const AddRecipe = () => {
   const router = useRouter();
-
   const [dataRecipe, setDataRecipe] = useState({
     title: "",
     ingre: "",
@@ -27,11 +26,13 @@ const AddRecipe = () => {
   const handleUploadChange = (e) => {
     console.log(e.target.files[0]);
     let upload = e.target.files[0];
+    console.log("data image", upload);
     setFile(upload);
   };
   const handlevideoUploadChange = (e) => {
     console.log(e.target.files[0]);
     let upload = e.target.files[0];
+    console.log("data Video", upload);
     let preview = URL.createObjectURL(e.target.files[0]);
     setVideo(upload);
   };
@@ -42,16 +43,16 @@ const AddRecipe = () => {
       [e.target.name]: e.target.value,
     });
   };
-  const handleUpload = (e) => {
+  const handleUpload = async (e) => {
+    console.log("dataupload", dataRecipe);
     e.preventDefault();
-
     let bodyFormData = new FormData();
     bodyFormData.append("title", dataRecipe.title);
     bodyFormData.append("ingre", dataRecipe.ingre);
     bodyFormData.append("img", file);
     bodyFormData.append("vid", video);
 
-    axios({
+    await axios({
       method: "PUT",
       url: `${process.env.api_recipefood}/v1/recipe/${router.query.id}`,
       data: bodyFormData,
@@ -82,7 +83,7 @@ const AddRecipe = () => {
       <div>
         <form onSubmit={handleUpload} className={styles.container}>
           <div className={styles.photo}>
-            <input type="file" value={dataRecipe.img} onChange={handleUploadChange} />
+            <input type="file" name="img" value={dataRecipe.img} onChange={handleUploadChange} />
           </div>
           <div>
             <input type="text" name="title" className={styles.inputrecipe} placeholder="Title" value={dataRecipe.title} onChange={handleChange} />
@@ -91,7 +92,7 @@ const AddRecipe = () => {
             <textarea className={styles.ingre} name="ingre" id="" cols="105" rows="10" placeholder="Ingredients" value={dataRecipe.ingre} onChange={handleChange} />
           </div>
           <div>
-            <input type="file" value={dataRecipe.vid} onChange={handlevideoUploadChange} />
+            <input type="file" name="vid" value={dataRecipe.vid} onChange={handlevideoUploadChange} />
           </div>
           <Button title="Edit Recipe" color="yellow" btn="post" />
         </form>
