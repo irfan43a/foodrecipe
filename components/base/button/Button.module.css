@@ -29,3 +29,10 @@
   color: white;
   border: none;
 }
+.btnsearch {
+  width: 100px;
+  height: 60px;
+  border: 1px solid #ffffff;
+  font-weight: bold;
+  background-color: white;
+}

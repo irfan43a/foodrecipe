@@ -13,17 +13,34 @@ import Image from "next/image";
 const PageIndex = () => {
   const router = useRouter();
   const [data, setData] = useState([]);
+  const [search, setSearch] = useState("");
+
+  const handleSearch = () => {
+    setSearch(search);
+    console.log(search);
+  };
+
+  async function fectData(search) {
+    try {
+      const result = await axios(`${process.env.api_recipefood}/v1/recipe/?search=${search}`);
+      setData(result.data.data);
+    } catch (error) {
+      console.log(error.response);
+    }
+  }
+
   useEffect(() => {
-    axios
-      .get(`${process.env.api_recipefood}/v1/recipe/`)
-      .then((res) => {
-        console.log(res);
-        setData(res.data.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+    fectData(search);
+    // axios
+    //   .get(`${process.env.api_recipefood}/v1/recipe/?${search}`)
+    //   .then((res) => {
+    //     console.log(res);
+    //     setData(res.data.data);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+  }, [search]);
   return (
     <MyLayout title="| Home">
       <div className={styles.container}>
@@ -31,16 +48,25 @@ const PageIndex = () => {
           <h1>
             Discover Recipe <br />& Delicious Food
           </h1>
-          <Input className="landing" placeholder="Seacrh Resstourant Food" />
+          <div className={styles.search}>
+            <Input className="landing" placeholder="Seacrh Resstourant Food" onChange={(e) => setSearch(e.target.value)} />
+            <Button btn="btnsearch" title="Search" onClick={(e) => handleSearch(e)} />
+          </div>
         </div>
         <div className={styles.bg}>
           <div className={styles.mainimg}>
-            <Link href="detailvideo">
-              <Image src="/assets/delicious.svg" alt="" layout="fill" objectFit="cover" />
-            </Link>
+            <Image src="/assets/delicious.svg" alt="" layout="fill" objectFit="cover" />
           </div>
           <div className={styles.white}></div>
           <div className={styles.yellow}></div>
+        </div>
+      </div>
+      <div className={styles.container4}>
+        <h1>Popular Recipe</h1>
+        <div className={styles.popurecipe}>
+          {data?.map((recipe) => (
+            <Card key={recipe.id} title={recipe.title} id={recipe.id} src={recipe.img ? recipe.img : "/assets/food2.svg"} onClick={() => router.push(`/landing/${recipe.idrecipe}`)} />
+          ))}
         </div>
       </div>
       <div className={styles.container2}>
