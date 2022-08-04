@@ -3,7 +3,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/fandipras7/food_recipe_app">
+  <a href="https://github.com/irfan43a/foodrecipe">
     <img src="https://res.cloudinary.com/hirejob/image/upload/v1659591783/FoodRecipe/pageimage/logofood_shlzbp.jpg" alt="Logo" width="150px">
   </a>
 
