@@ -21,10 +21,9 @@
   </p>
 </div>
 <p align="center">
-    <a href="https://reactjs.org/"><img src="https://img.shields.io/github/package-json/dependency-version/HyperCarry-Team/TukuShop-app-frontend/react?color=32C33B"></a>  
+    <a href="https://nextjs.org/"><img src="https://img.shields.io/github/package-json/dependency-version/HyperCarry-Team/TukuShop-app-frontend/nextjs?color=32C33B"></a>  
     <a href="https://getbootstrap.com/"><img src="https://img.shields.io/github/package-json/dependency-version/HyperCarry-Team/TukuShop-app-frontend/bootstrap?color=32C33B"></a>
-    <a href="https://axios-http.com/"><img src="https://img.shields.io/github/package-json/dependency-version/HyperCarry-Team/TukuShop-app-frontend/axios?color=32C33B"></a>
-    
+    <a href="https://axios-http.com/"><img src="https://img.shields.io/github/package-json/dependency-version/HyperCarry-Team/TukuShop-app-frontend/axios?color=32C33B"></a>  
     
     <img src="https://img.shields.io/github/license/HyperCarry-Team/TukuShop-app-frontend?color=32C33B">
     </p>
