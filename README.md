@@ -126,13 +126,7 @@ REACT_APP_API_URL = [API_URL]
 
 ### Landing Page
 
-<img src="https://res.cloudinary.com/hirejob/image/upload/v1659495317/FoodRecipe/pageimage/landingfood_a9jebl.jpg" />
-
-<img src="https://res.cloudinary.com/hirejob/image/upload/v1659495329/FoodRecipe/pageimage/landingfood2_gdhjrs.jpg" />
-
-<img src="https://res.cloudinary.com/hirejob/image/upload/v1659495338/FoodRecipe/pageimage/landingfood3_p3ruyu.jpg" />
-
-<img src="https://res.cloudinary.com/hirejob/image/upload/v1659665143/FoodRecipe/pageimage/landingfood5_hc1jkh.png" />
+<img src="https://res.cloudinary.com/hirejob/image/upload/v1659668786/FoodRecipe/pageimage/Full_Food_recipe___Home_lwghiw.png" />
 
 ### Detail Recipe Page
 
