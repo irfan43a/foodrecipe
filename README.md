@@ -116,15 +116,15 @@ REACT_APP_API_URL = [API_URL]
 
 ## Screenshoots
 
-### Login
+### Login Page
 
 <img src="https://res.cloudinary.com/hirejob/image/upload/v1659495292/FoodRecipe/pageimage/loginfood_rqvtf8.jpg" />
 
-### Register
+### Register Page
 
 <img src="https://res.cloudinary.com/hirejob/image/upload/v1659495302/FoodRecipe/pageimage/registerfood_ijhz59.jpg" />
 
-### Landing1
+### Landing Page
 
 <img src="https://res.cloudinary.com/hirejob/image/upload/v1659495317/FoodRecipe/pageimage/landingfood_a9jebl.jpg" />
 
@@ -134,24 +134,24 @@ REACT_APP_API_URL = [API_URL]
 
 <img src="https://res.cloudinary.com/hirejob/image/upload/v1659665143/FoodRecipe/pageimage/landingfood5_hc1jkh.png" />
 
-### Detail Recipe
+### Detail Recipe Page
 
 <img src="https://res.cloudinary.com/hirejob/image/upload/v1659495387/FoodRecipe/pageimage/detailfood_r4cdnn.jpg" />
 
-### Detail Video Recipe
+### Detail Video Recipe Page
 
 <img src="https://res.cloudinary.com/hirejob/image/upload/v1659495398/FoodRecipe/pageimage/videofood_ztb9uc.jpg" />
 
-### Profile
+### Profile Page
 
 <img src="https://res.cloudinary.com/hirejob/image/upload/v1659495380/FoodRecipe/pageimage/profilefood_oxva3i.jpg" />
 
 
-### Add Recipe
+### Add Recipe Page
 
 <img src="https://res.cloudinary.com/hirejob/image/upload/v1659495429/FoodRecipe/pageimage/addfood_blwaiu.jpg" />
 
-### Edit Recipe
+### Edit Recipe Page
 
 <img src="https://res.cloudinary.com/hirejob/image/upload/v1659495429/FoodRecipe/pageimage/addfood_blwaiu.jpg" />
 
