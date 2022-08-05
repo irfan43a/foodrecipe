@@ -128,15 +128,9 @@ REACT_APP_API_URL = [API_URL]
 
 <img src="https://res.cloudinary.com/hirejob/image/upload/v1659495317/FoodRecipe/pageimage/landingfood_a9jebl.jpg" />
 
-### landing2
-
 <img src="https://res.cloudinary.com/hirejob/image/upload/v1659495329/FoodRecipe/pageimage/landingfood2_gdhjrs.jpg" />
 
-### landing3
-
 <img src="https://res.cloudinary.com/hirejob/image/upload/v1659495338/FoodRecipe/pageimage/landingfood3_p3ruyu.jpg" />
-
-### landing4
 
 <img src="https://res.cloudinary.com/hirejob/image/upload/v1659665143/FoodRecipe/pageimage/landingfood5_hc1jkh.png" />
 
