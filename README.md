@@ -138,7 +138,7 @@ REACT_APP_API_URL = [API_URL]
 
 ### landing4
 
-<img src="https://res.cloudinary.com/hirejob/image/upload/v1659495362/FoodRecipe/pageimage/landingfood4_oo1jyi.jpg" />
+<img src="https://res.cloudinary.com/hirejob/image/upload/v1659665143/FoodRecipe/pageimage/landingfood5_hc1jkh.png" />
 
 ### Detail Recipe
 
@@ -175,13 +175,13 @@ Contributions are what make the open source community such an amazing place to b
 
 ## Related Project
 
-:rocket: [`Backend Mama Recipe`](https://github.com/irfan43a/foodrecipe-API)
+:rocket: [`Frontend Mama Recipe Food`](https://github.com/irfan43a/foodrecipe)
 
-:rocket: [`Frontend Mama Recipe`](https://github.com/irfan43a/foodrecipe)
-
-:rocket: [`Web Service`](https://recipefood-app.herokuapp.com)
+:rocket: [`Mama Recipe Food Backend`](https://github.com/irfan43a/foodrecipe-API)
 
 :rocket: [`Demo Mama Recipe`](https://foodrecipe-one.vercel.app/)
+
+:rocket: [`Mama Recipe Food Web Service`](https://recipefood-app.herokuapp.com)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
