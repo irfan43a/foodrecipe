@@ -179,7 +179,7 @@ Contributions are what make the open source community such an amazing place to b
 
 :rocket: [`Mama Recipe Food Backend`](https://github.com/irfan43a/foodrecipe-API)
 
-:rocket: [`Demo Mama Recipe`](https://foodrecipe-one.vercel.app/)
+:rocket: [`Demo Mama Recipe Food`](https://foodrecipe-one.vercel.app/)
 
 :rocket: [`Mama Recipe Food Web Service`](https://recipefood-app.herokuapp.com)
 
