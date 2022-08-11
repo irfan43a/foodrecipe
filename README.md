@@ -130,7 +130,7 @@ REACT_APP_API_URL = [API_URL]
 
 ### Detail Recipe Page
 
-<img src="https://res.cloudinary.com/hirejob/image/upload/v1659495387/FoodRecipe/pageimage/detailfood_r4cdnn.jpg" />
+<img src="https://res.cloudinary.com/hirejob/image/upload/v1660203223/FoodRecipe/pageimage/Food_recipe_ljlokh.png" />
 
 ### Detail Video Recipe Page
 
