@@ -39,10 +39,10 @@ const ProductDetail = () => {
             )}
           </div>
           <h2>{data?.title}</h2>
-          <h2>{data?.ingre}</h2>
+          {/* <h2>{data?.ingre}</h2> */}
         </div>
         <div className={styles.sub}>
-          <h6>Next</h6>
+          {/* <h6>Next</h6> */}
           <div className={styles.nextvid}>
             {/* <div className={styles.vid}>
               <video width={320} height={240} controls>

@@ -24,13 +24,13 @@ const AddRecipe = () => {
   });
 
   const handleUploadChange = (e) => {
-    console.log(e.target.files[0]);
+    // console.log(e.target.files[0]);
     let upload = e.target.files[0];
     console.log("data image", upload);
     setFile(upload);
   };
   const handlevideoUploadChange = (e) => {
-    console.log(e.target.files[0]);
+    // console.log(e.target.files[0]);
     let upload = e.target.files[0];
     console.log("data Video", upload);
     let preview = URL.createObjectURL(e.target.files[0]);

@@ -15,6 +15,7 @@ const AddRecipe = () => {
     vid: "",
   });
   const [imagePriview, setImagePriview] = useState("");
+
   const [file, setFile] = useState({
     file: null,
     priview: "",
@@ -46,7 +47,6 @@ const AddRecipe = () => {
   };
   const handleUpload = (e) => {
     e.preventDefault();
-
     let bodyFormData = new FormData();
     bodyFormData.append("title", dataRecipe.title);
     bodyFormData.append("ingre", dataRecipe.ingre);

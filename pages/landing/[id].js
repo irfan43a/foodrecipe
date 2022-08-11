@@ -9,8 +9,10 @@ import styles from "./detail.module.css";
 import { useState, useEffect } from "react";
 const ProductDetail = () => {
   const router = useRouter();
+  const [ingredient, setIngredient] = useState("");
   const id = router.query.id;
   const [data, setData] = useState({});
+
   useEffect(() => {
     axios
       .get(`${process.env.api_recipefood}/v1/recipe/${id}`)
@@ -29,21 +31,23 @@ const ProductDetail = () => {
         <div className={styles.mainimg}>{<Image src={data.img ? data.img : "/assets/food2.svg"} width={400} height={300} alt="" />}</div>
         <div className={styles.inggrediens}>
           <h3>Ingredients</h3>
-          <p>{data.ingre}</p>
+          <p>
+            {data.ingre?.split(",").map((item) => (
+              <p key={item.id}>- {item}</p>
+            ))}
+          </p>
         </div>
         <div className={styles.vid}>
-          <h3>Video Step</h3>
-          <Button btn="btnVid" color="yellow" title="D" onClick={() => router.push(`/detailvideo/${data.idrecipe}`)} />
-          <Button btn="btnVid" color="yellow" title="D" />
-          <Button btn="btnVid" color="yellow" title="D" />
+          <h3>Video Recipe</h3>
+          <Button btn="btnVid" color="yellow" title="Cek Recipe on Video" onClick={() => router.push(`/detailvideo/${data.idrecipe}`)} />
         </div>
-        <div className={styles.coment}>
+        {/* <div className={styles.coment}>
           <div>
             <textarea className={styles.ingre} name="comment" id="" cols="105" rows="10" placeholder="Comment" />
           </div>
           <Button title="simpan" btn="login" color="yellow"></Button>
           <h3>Comment</h3>
-        </div>
+        </div> */}
       </div>
       <Footer className="footer" />
     </MyLayout>
